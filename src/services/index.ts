@@ -1,9 +1,9 @@
-import { PublishersService } from "./publishers.service";
+import { CommentsService } from "./comments.service";
 import { UsersService } from "./users.service";
 import { PostsService } from "./posts.service";
 
 const usersService = new UsersService();
-const publishersService = new PublishersService();
+const commentsService = new CommentsService();
 const postsService = new PostsService();
 
 /**
@@ -13,4 +13,4 @@ const postsService = new PostsService();
  * commandBus who knows details about the services
  * 
 */
-export { UsersService, usersService, publishersService, PublishersService, PostsService, postsService }
+export { UsersService, usersService,  CommentsService, commentsService, PostsService, postsService }

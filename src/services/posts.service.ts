@@ -21,7 +21,7 @@ export class PostsService {
 
   async getPostsByUser(postInfo: PostCreationAttributes): Promise<Array<Post>> {
     try {
-      return await Post.findAll({ where: { UserId: postInfo.UserId, }});
+      return await Post.findAll({ where: { userId: postInfo.userId }});
     } catch (error) {
       throw new Error('Error getting posts by user');
     }
