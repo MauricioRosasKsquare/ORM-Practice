@@ -26,4 +26,36 @@ export class PostsService {
       throw new Error('Error getting posts by user');
     }
   }
+
+  async deletePost(postInfo: PostCreationAttributes): Promise<Post | null> {
+    try {
+        const post = await Post.findOne({ where: { id: postInfo.id }});
+        
+        if(post != null){
+          const deleted = post;
+          post?.destroy();
+          return deleted;
+        }else{
+          return null
+        }
+        
+    } catch (error) {
+      throw new Error('Error deleting user');
+    }
+  }
+
+  async updatePost(postInfo: PostCreationAttributes): Promise<Post | null > {
+    try {
+        const post = await Post.findOne({ where: { id: postInfo.id }});
+        if (post !== null){
+          post?.update( { text: postInfo.text });
+          return post;
+        }else{
+          return null;
+        }
+    } catch (error) {
+      throw new Error('Error updating post');
+    }
+  }
+
 }

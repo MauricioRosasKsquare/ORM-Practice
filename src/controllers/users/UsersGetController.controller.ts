@@ -32,7 +32,7 @@ export class UserGetController implements Controller {
     }
     try {
       const user = await this.service.getUser({id:userid});
-      if (user === []){
+      if (user.length !== 0){
         res.status(201).json(user);
       }else{
         res.status(httpStatus.OK).send("User not foud");

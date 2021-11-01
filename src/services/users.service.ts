@@ -52,7 +52,7 @@ export class UsersService {
           return null;
         }
     } catch (error) {
-      throw new Error('Error deleting user');
+      throw new Error('Error updating user');
     }
   }
 }

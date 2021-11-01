@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import httpStatus from 'http-status';
 import { Controller } from "../Controller";
 import { PostsService } from 'src/services'; // This should not be here
-import {usersGetController} from '../../controllers';
+import {userGetController} from '../../controllers';
 
 
 export class PostPostController implements Controller {
@@ -16,7 +16,7 @@ export class PostPostController implements Controller {
       throw response.status(httpStatus.NOT_ACCEPTABLE).send("Invalid user id or not given");
     }
    
-    const user = usersGetController.run(req, response);
+    const user = userGetController.run(req, response);
 
     if(user === null){
       throw response.status(httpStatus.NOT_ACCEPTABLE).send("User not Found");

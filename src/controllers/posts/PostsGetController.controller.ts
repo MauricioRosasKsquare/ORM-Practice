@@ -3,7 +3,7 @@ import httpStatus from 'http-status';
 import { Controller } from "../Controller";
 import { PostsService } from 'src/services'; // This should not be here
 
-//import {userGetController} from '../../controllers';
+import {userGetController} from '../../controllers';
 
 
 export class PostsGetController implements Controller {
@@ -32,13 +32,13 @@ export class PostsByUserGetController implements Controller {
     if(isNaN(userId)){
       throw res.status(httpStatus.NOT_ACCEPTABLE).send("Invalid user id or not given");
     }
-/*   
+   
     const user =  userGetController.run(req, res);
     
     if(user === null){
       throw res.status(httpStatus.NOT_ACCEPTABLE).send("User not Found");
     }
-*/
+
     try {
       const posts = await this.service.getPostsByUser({text: " " , userId});
       if(posts.length === 0){
