@@ -35,7 +35,7 @@ export class UserGetController implements Controller {
       if (user.length !== 0){
         res.status(201).json(user);
       }else{
-        res.status(httpStatus.OK).send("User not foud");
+        res.status(httpStatus.OK).send("User not found");
       }
     } catch (error) {
       res.status(httpStatus.INTERNAL_SERVER_ERROR);

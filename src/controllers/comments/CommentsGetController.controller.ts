@@ -9,7 +9,12 @@ export class CommentsGetController implements Controller {
   async run(req: Request, res: Response): Promise<void> {
     try {
       const comments = await this.service.getComments();
+      if(comments.length === 0){
+        throw res.status(httpStatus.NOT_ACCEPTABLE).send("There is no comments yet");
+    }else{
       res.status(httpStatus.CREATED).json(comments);
+    }
+      
     } catch (error) {
       res.status(httpStatus.INTERNAL_SERVER_ERROR);
     }

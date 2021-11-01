@@ -22,7 +22,7 @@ export class CommentsService {
     try {
       return await Comment.find({_id: {$eq : id} });
     } catch (error) {
-      throw new Error('Error getting comments');
+      throw new Error('Comment not found');
     }
   }
 

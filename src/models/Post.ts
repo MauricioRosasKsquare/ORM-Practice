@@ -5,11 +5,11 @@ import { ModelInitializer } from './ModelInitializer';
 export interface PostAttributes {
   id: number;
   text: string;
-  userId: number;
+  
 }
 
 export interface PostCreationAttributes extends Optional<PostAttributes, "id"> {
-  
+  userId : number;
 }
 
 export class Post extends Model<PostAttributes, PostCreationAttributes> {
@@ -37,10 +37,7 @@ export class PostModelInitializer implements ModelInitializer {
         allowNull: false,
         type: new DataTypes.STRING(128),
       },
-      userId:{
-        allowNull: false,
-        type: DataTypes.INTEGER,
-      },
+      
     }, {
       sequelize: this.client, 
       modelName: 'Post' 

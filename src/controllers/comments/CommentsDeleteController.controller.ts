@@ -11,11 +11,9 @@ export class CommentsDeleteController implements Controller {
     if(req.params.idComment === undefined){
         throw response.status(httpStatus.NOT_ACCEPTABLE).send("Id Comment not given");
     }
-    const comment = await this.service.getComment(req.params.idComment);
+    await this.service.getComment(req.params.idComment);
 
-    if(comment.length === 0){
-        throw response.status(httpStatus.NOT_ACCEPTABLE).send("Comment not Found");
-    }
+    
 
     try {
       const CommentDeleted = await this.service.deleteComments(req.params.idComment);

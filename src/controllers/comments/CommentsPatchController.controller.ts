@@ -13,6 +13,12 @@ export class CommentsPatchController implements Controller {
       throw response.status(httpStatus.NOT_ACCEPTABLE).send("Id Comment not given");
     }
 
+    const comment = await this.service.getComment(req.params.idComment);
+
+    if(comment.length === 0){
+        throw response.status(httpStatus.NOT_ACCEPTABLE).send("Comment not Found");
+    }
+
     if(req.body.text == undefined){
       throw response.status(httpStatus.NOT_ACCEPTABLE).send("Field text is requiered");
     }

@@ -16,9 +16,8 @@ export class PostPostController implements Controller {
       throw response.status(httpStatus.NOT_ACCEPTABLE).send("Invalid user id or not given");
     }
    
-    const user = userGetController.run(req, response);
-
-    if(user === null){
+    const user =await userGetController.run(req, response);
+    if(user === undefined){
       throw response.status(httpStatus.NOT_ACCEPTABLE).send("User not Found");
     }
     const text = req.body.text.trim();
