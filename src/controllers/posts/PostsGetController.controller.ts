@@ -40,7 +40,7 @@ export class PostsByUserGetController implements Controller {
     }
 
     try {
-      const posts = await this.service.getPostsByUser({text: " " , userId});
+      const posts = await this.service.getPostsByUser({text: "" , userId});
       if(posts.length === 0){
         res.status(httpStatus.OK).send("No posts related found");
       }else{

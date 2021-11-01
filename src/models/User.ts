@@ -87,6 +87,6 @@ export class UserModelInitializer implements ModelInitializer {
       sequelize: this.client, // We need to pass the connection instance
       modelName: 'User' // We need to choose the model name
     });
-    User.hasMany(Post);
+    User.hasMany(Post, {foreignKey: 'userId', sourceKey: 'id'});
   }
 };
